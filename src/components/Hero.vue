@@ -57,8 +57,8 @@ const conf = computed(() => {
   // 업무분야 상세 페이지
   if (route.path.startsWith('/practice/')) {
     return {
-      title: route.params.title,      // ← 민사 / 형사 / 회생·파산
-      img: '${import.meta.env.BASE_URL}images/practice.png',    // ← 이미지 고정
+      title: route.params.title || '',
+      img: `${base}images/practice.png`,
     }
   }
 

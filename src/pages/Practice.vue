@@ -8,6 +8,7 @@
         :style="{ '--bg-image': `url(${item.image})` }"
         @click="goDetail(item.title)"
       >
+
         <span class="practice-title">{{ item.title }}</span>
         <span class="arrow">↗</span>
       </div>
@@ -76,6 +77,7 @@ const goDetail = (title) => {
   opacity: 0;
   transition: opacity 0.35s ease;
 }
+
 
 /* 어두운 오버레이 */
 .practice-card::after {
