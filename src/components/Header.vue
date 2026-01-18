@@ -34,7 +34,10 @@
   <!-- 모바일 메뉴 오버레이 -->
   <div v-if="isMenuOpen" class="mobile-menu">
     <div class="mobile-menu-header">
-      <img src="/law-office/images/logo_blue.png" alt="법률사무소 위안" />
+      <img
+        :src="`${$base}images/logo_blue.png`"
+        alt="법률사무소 위안"
+      />
       <button class="close" @click="closeMenu">✕</button>
     </div>
 
@@ -101,7 +104,7 @@ onUnmounted(() => {
 /* 로고 */
 const logoSrc = computed(() =>
   scrolled.value
-    ? '/law-office/images/logo_blue.png'
-    : '/law-office/images/logo_white.png'
+    ? `${import.meta.env.BASE_URL}images/logo_blue.png`
+    : `${import.meta.env.BASE_URL}images/logo_white.png`
 )
 </script>

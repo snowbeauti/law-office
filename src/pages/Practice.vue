@@ -17,17 +17,18 @@
 
 <script setup>
 import { useRouter } from 'vue-router'
+const base = import.meta.env.BASE_URL
 
 const router = useRouter()
 const items = [
-  { title: '민사', image: '/law-office/images/practice/civil.png' },
-  { title: '형사', image: '/law-office/images/practice/criminal.png' },
-  { title: '회생·파산', image: '/law-office/images/practice/bankruptcy.png' },
-  { title: '가사', image: '/law-office/images/practice/family.png' },
-  { title: '기업법무', image: '/law-office/images/practice/corporate.png' },
-  { title: '건설·부동산', image: '/law-office/images/practice/realestate.png' },
-  { title: '인사·노무', image: '/law-office/images/practice/labor.png' },
-  { title: '행정', image: '/law-office/images/practice/admin.png' },
+  { title: '민사', image: `${base}images/practice/civil.png` },
+  { title: '형사', image: `${base}images/practice/criminal.png` },
+  { title: '회생·파산', image: `${base}images/practice/bankruptcy.png` },
+  { title: '가사', image: `${base}images/practice/family.png` },
+  { title: '기업법무', image: `${base}images/practice/corporate.png` },
+  { title: '건설·부동산', image: `${base}images/practice/realestate.png` },
+  { title: '인사·노무', image: `${base}images/practice/labor.png` },
+  { title: '행정', image: `${base}images/practice/admin.png` },
 ]
 const goDetail = (title) => {
   router.push(`/practice/${title}`)

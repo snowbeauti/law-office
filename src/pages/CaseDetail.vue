@@ -91,7 +91,7 @@ const caseData = computed(() =>
 const judgmentImages = computed(() => {
   if (!caseData.value?.imageCnt) return []
 
-  const basePath = `/law-office/images/cases/${caseData.value.id}/`
+  const basePath = `${import.meta.env.BASE_URL}images/cases/${caseData.value.id}/`
   const images = []
 
   for (let i = 1; i <= caseData.value.imageCnt; i++) {
