@@ -6,7 +6,7 @@
       <aside class="profile-area">
         <img
           class="profile-image"
-          src="/law-office/images/member_2.jpg"
+          :src="`${$base}images/member_2.jpg`"
           alt="대표변호사 이태훈"
         />
 
@@ -37,7 +37,7 @@
           <div class="title-wrap">
             <img
             class="logo-mark"
-            src="/law-office/images/logo_blue_v2.png"
+            :src="`${$base}images/logo_blue_v2.png`"
             alt="법률사무소 위안 로고"
             />
             <h1>

@@ -10,16 +10,16 @@
         <!-- ===== 길찾기 버튼 ===== -->
         <div class="map-links">
           <a href="#" @click.prevent="openNaverMap" class="map-btn">
-            <img src="/law-office/images/map/Primary_KR_Color.png" alt="네이버지도" />
+            <img :src="`${$base}images/map/Primary_KR_Color.png`" alt="네이버지도" />
           </a>
 
           <a href="#" @click.prevent="openKakaoMap" class="map-btn">
-            <img src="/law-office/images/map/kakaomap_horizontal_ko.png" alt="카카오맵" />
+            <img :src="`${$base}images/map/kakaomap_horizontal_ko.png`" alt="카카오맵" />
           </a>
 
           <!-- 티맵: 로고 + 텍스트 -->
           <a href="#" @click.prevent="openTmap" class="map-btn tmap">
-            <img src="/law-office/images/map/TMAP.svg" alt="티맵" />
+            <img :src="`${$base}images/map/TMAP.svg`" alt="티맵" />
             <span>티맵</span>
           </a>
         </div>

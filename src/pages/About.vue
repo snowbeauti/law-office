@@ -35,7 +35,7 @@
 
       <!-- 2️⃣ 이미지 -->
       <div class="about-image">
-        <img src="/law-office/images/about_2.png" alt="법률사무소 위안 소개 이미지" />
+        <img :src="`${$base}images/about_2.png`" alt="법률사무소 위안 소개 이미지" />
       </div>
 
     </div>
