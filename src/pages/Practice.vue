@@ -101,7 +101,7 @@ const goDetail = (title) => {
   z-index: 2;
   font-size: 35px;
   font-weight: 600;
-  color: #164E78;
+  color: #004572;
   transition: color 0.3s ease;
 }
 
@@ -113,7 +113,7 @@ const goDetail = (title) => {
   z-index: 2;
   font-size: 50px;
   font-weight: 500;
-  color: #164E78;
+  color: #004572;
 }
 
 /* hover 텍스트 색 */

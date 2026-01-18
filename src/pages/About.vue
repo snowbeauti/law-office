@@ -107,7 +107,7 @@ defineProps({
 }
 
 .about-lead2 .brand{
-  color: #164E78;
+  color: #004572;
   font-weight: 800;
   font-size: 38px;
 }
@@ -135,7 +135,7 @@ defineProps({
   top: 0.4em;
   width: 3px;
   height: 1em;
-  background-color: #164E78;
+  background-color: #004572;
 }
 
 /* ✅ 모바일: 세로 스택 (flex) */

@@ -144,7 +144,7 @@ function openTmap() {
   font-size: 32px;
   font-weight: 700;
   margin-bottom: 40px;
-  color: #164E78;
+  color: #004572;
 }
 
 /* 오른쪽 가로 라인 */
@@ -152,7 +152,7 @@ function openTmap() {
   content: '';
   flex: 1;               /* 남은 영역 채우기 */
   height: 3px;
-  background-color: #0b2a6f;
+  background-color: #004572;
 }
 .directions-wrap {
   display: grid;

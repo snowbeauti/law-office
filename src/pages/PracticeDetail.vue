@@ -207,7 +207,7 @@ const goCaseDetail = (item) => {
 .title-line {
   width: 100%;
   height: 3px;
-  background: #164E78;
+  background: #004572;
   margin-bottom: 32px;
 }
 
@@ -222,7 +222,7 @@ const goCaseDetail = (item) => {
 
 /* 강조 블록 */
 .practice-highlight {
-  border-left: 4px solid #164E78;
+  border-left: 4px solid #004572;
   padding-left: 16px;
   margin-bottom: 40px;
 }
@@ -273,7 +273,7 @@ const goCaseDetail = (item) => {
   transform: translateY(-50%);
   width: 4px;
   height: 22px;
-  background: #164E78;
+  background: #004572;
 }
 
 .more-link {
@@ -300,7 +300,7 @@ const goCaseDetail = (item) => {
 }
 
 .case-card:hover {
-  border-color: #164E78;
+  border-color: #004572;
 }
 
 /* 배지 */
@@ -315,7 +315,7 @@ const goCaseDetail = (item) => {
   font-size: 13px;
   font-weight: 600;
   color: #fff;
-  background-color: #164E78;
+  background-color: #004572;
   border-radius: 6px;
 }
 

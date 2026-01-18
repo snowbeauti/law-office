@@ -228,7 +228,7 @@
 .title-line {
   flex: 1;
   height: 2px;
-  background: #164E78;
+  background: #004572;
   margin-left: 20px;
 }
 
@@ -255,7 +255,7 @@
   top: 4px;
   width: 3px;
   height: 20px;
-  background: #164E78;
+  background: #004572;
 }
 
 .text-list,
@@ -276,7 +276,7 @@
 /* Tag */
 .case-tag {
   display: inline-block;
-  background: #164E78;
+  background: #004572;
   color: #fff;
   font-size: 15px;
   padding: 6px 14px;
@@ -286,7 +286,7 @@
 
 .case-tag2 {
   display: inline-block;
-  background: #164E78;
+  background: #004572;
   color: #fff;
   font-size: 15px;
   padding: 6px 14px;
