@@ -34,17 +34,17 @@
   <!-- 모바일 메뉴 오버레이 -->
   <div v-if="isMenuOpen" class="mobile-menu">
     <div class="mobile-menu-header">
-      <img src="/images/logo_blue.png" alt="법률사무소 위안" />
+      <img src="/law-office/images/logo_blue.png" alt="법률사무소 위안" />
       <button class="close" @click="closeMenu">✕</button>
     </div>
 
     <nav class="mobile-nav">
-      <RouterLink @click="closeMenu" to="/about">위안소개</RouterLink>
-      <RouterLink @click="closeMenu" to="/members">구성원</RouterLink>
-      <RouterLink @click="closeMenu" to="/practice">업무분야</RouterLink>
-      <RouterLink @click="closeMenu" to="/cases">성공사례</RouterLink>
-      <RouterLink @click="closeMenu" to="/contact">상담문의</RouterLink>
-      <RouterLink @click="closeMenu" to="/location">오시는길</RouterLink>
+      <RouterLink @click="closeMenu" to="./about">위안소개</RouterLink>
+      <RouterLink @click="closeMenu" to="./members">구성원</RouterLink>
+      <RouterLink @click="closeMenu" to="./practice">업무분야</RouterLink>
+      <RouterLink @click="closeMenu" to="./cases">성공사례</RouterLink>
+      <RouterLink @click="closeMenu" to="./contact">상담문의</RouterLink>
+      <RouterLink @click="closeMenu" to="./location">오시는길</RouterLink>
     </nav>
   </div>
 </template>
@@ -101,7 +101,7 @@ onUnmounted(() => {
 /* 로고 */
 const logoSrc = computed(() =>
   scrolled.value
-    ? '/images/logo_blue.png'
-    : '/images/logo_white.png'
+    ? '/law-office/images/logo_blue.png'
+    : '/law-office/images/logo_white.png'
 )
 </script>

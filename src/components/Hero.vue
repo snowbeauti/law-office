@@ -42,12 +42,12 @@ const showSubHero = computed(() => route.meta.showSubHero !== false)
 
 /* 고정 매핑 */
 const map = {
-  '/about': { title: '위안소개', img: '/images/about.png' },
-  '/members': { title: '구성원', img: '/images/members.png' },
-  '/practice': { title: '업무분야', img: '/images/practice.png' },
-  '/cases': { title: '성공사례', img: '/images/cases.png' },
-  '/contact': { title: '상담문의', img: '/images/contact.png' },
-  '/location': { title: '오시는길', img: '/images/location.png' },
+  '/about': { title: '위안소개', img: 'images/about.png' },
+  '/members': { title: '구성원', img: 'images/members.png' },
+  '/practice': { title: '업무분야', img: 'images/practice.png' },
+  '/cases': { title: '성공사례', img: 'images/cases.png' },
+  '/contact': { title: '상담문의', img: 'images/contact.png' },
+  '/location': { title: '오시는길', img: 'images/location.png' },
 }
 
 /* 🔥 핵심 로직 */
@@ -56,7 +56,7 @@ const conf = computed(() => {
   if (route.path.startsWith('/practice/')) {
     return {
       title: route.params.title,      // ← 민사 / 형사 / 회생·파산
-      img: '/images/practice.png',    // ← 이미지 고정
+      img: 'images/practice.png',    // ← 이미지 고정
     }
   }
 

@@ -10,16 +10,16 @@
         <!-- ===== 길찾기 버튼 ===== -->
         <div class="map-links">
           <a href="#" @click.prevent="openNaverMap" class="map-btn">
-            <img src="/images/map/Primary_KR_Color.png" alt="네이버지도" />
+            <img src="/law-office/images/map/Primary_KR_Color.png" alt="네이버지도" />
           </a>
 
           <a href="#" @click.prevent="openKakaoMap" class="map-btn">
-            <img src="/images/map/kakaomap_horizontal_ko.png" alt="카카오맵" />
+            <img src="/law-office/images/map/kakaomap_horizontal_ko.png" alt="카카오맵" />
           </a>
 
           <!-- 티맵: 로고 + 텍스트 -->
           <a href="#" @click.prevent="openTmap" class="map-btn tmap">
-            <img src="/images/map/TMAP.svg" alt="티맵" />
+            <img src="/law-office/images/map/TMAP.svg" alt="티맵" />
             <span>티맵</span>
           </a>
         </div>
@@ -32,7 +32,7 @@
           rel="noopener"
         >
           <img
-            src="/images/map_place.png"
+            src="//law-office/images/map_place.png"
             alt="법률사무소 위안 지도"
             class="map-preview"
           />
@@ -46,7 +46,7 @@
         <h2 class="page-title">오시는 길</h2>
 
         <div class="office-name">
-          <img src="/images/logo_blue.png" alt="위안 로고" class="logo" />
+          <img src="/law-office/images/logo_blue.png" alt="위안 로고" class="logo" />
         </div>
 
         <ul class="info-list">

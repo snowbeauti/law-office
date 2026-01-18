@@ -8,12 +8,12 @@
         <div class="member-card">
           <div class="member-photo">
             <RouterLink to="/members/1">
-              <img class="member-img" src="/images/member_1.jpg" alt="이종호 대표변호사" />
+              <img class="member-img" src="/law-office/images/member_1.jpg" alt="이종호 대표변호사" />
             </RouterLink>
 
             <img
               class="hover-logo"
-              src="/images/logo_blue_v2.png"
+              src="/law-office/images/logo_blue_v2.png"
               alt="위안 로고"
             />
 
@@ -32,12 +32,12 @@
         <div class="member-card">
           <div class="member-photo">
             <RouterLink to="/members/2">
-              <img class="member-img" src="/images/member_2.jpg" alt="이태훈 대표변호사" />
+              <img class="member-img" src="/law-office/images/member_2.jpg" alt="이태훈 대표변호사" />
             </RouterLink>
 
             <img
               class="hover-logo"
-              src="/images/logo_blue_v2.png"
+              src="/law-office/images/logo_blue_v2.png"
               alt="위안 로고"
             />
 

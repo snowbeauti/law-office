@@ -20,14 +20,14 @@ import { useRouter } from 'vue-router'
 
 const router = useRouter()
 const items = [
-  { title: '민사', image: '/images/practice/civil.png' },
-  { title: '형사', image: '/images/practice/criminal.png' },
-  { title: '회생·파산', image: '/images/practice/bankruptcy.png' },
-  { title: '가사', image: '/images/practice/family.png' },
-  { title: '기업법무', image: '/images/practice/corporate.png' },
-  { title: '건설·부동산', image: '/images/practice/realestate.png' },
-  { title: '인사·노무', image: '/images/practice/labor.png' },
-  { title: '행정', image: '/images/practice/admin.png' },
+  { title: '민사', image: '/law-office/images/practice/civil.png' },
+  { title: '형사', image: '/law-office/images/practice/criminal.png' },
+  { title: '회생·파산', image: '/law-office/images/practice/bankruptcy.png' },
+  { title: '가사', image: '/law-office/images/practice/family.png' },
+  { title: '기업법무', image: '/law-office/images/practice/corporate.png' },
+  { title: '건설·부동산', image: '/law-office/images/practice/realestate.png' },
+  { title: '인사·노무', image: '/law-office/images/practice/labor.png' },
+  { title: '행정', image: '/law-office/images/practice/admin.png' },
 ]
 const goDetail = (title) => {
   router.push(`/practice/${title}`)
