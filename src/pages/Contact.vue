@@ -47,17 +47,33 @@
         <textarea v-model="form.content"></textarea>
       </div>
 
-      <!-- 첨부파일 -->
+      <!-- 첨부파일 여부 -->
       <div class="row">
-        <label>첨부파일</label>
-        <div class="file-box">
-          <span>{{ fileName || '선택된 파일 없음' }}</span>
-          <input
-            type="file"
-            @change="onFileChange"
-          />
+        <label class="row-label">첨부파일</label>
+
+        <div class="row-content">
+          
+          <label class="radio">
+            <input
+              type="radio"
+              value="N"
+              v-model="form.hasFile"
+            />
+            무
+          </label>
+
+          <label class="radio">
+            <input
+              type="radio"
+              value="Y"
+              v-model="form.hasFile"
+            />
+            유
+          </label>
+
         </div>
       </div>
+
 
       <!-- 개인정보 동의 -->
       <div class="agree">
@@ -92,7 +108,7 @@ const form = reactive({
   email: '',
   title: '',
   content: '',
-  file: null
+  hasFile: 'N'   // 기본값: 무
 })
 
 const agree = ref(false)
@@ -166,7 +182,12 @@ function sanitizeEmail(e) {
   padding: 0 12px;
   border: 1px solid #ddd;
 }
-
+.checkbox input {
+  width: auto;
+  height: auto;
+  padding: 0;
+  border: none;
+}
 textarea {
   min-height: 260px;
   line-height: 1.6;
@@ -216,9 +237,40 @@ textarea {
   border: none;
 }
 
-.select{
-  cursor: pointer;
+.row-label {
+  font-family: 'Pretendard';
+  display: block;
+  font-size: 18px;
+  margin-bottom: 12px;
 }
+
+.row-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.radio {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.radio input {
+  width: auto;
+  height: auto;
+  padding: 0;
+  border: none;
+}
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
 
 </style>
 
