@@ -25,19 +25,6 @@
         </div>
 
       </div>
-      <!-- <div class="map-area">
-        <a
-          href="https://map.naver.com/p/entry/place/1986716726"
-          target="_blank"
-          rel="noopener"
-        >
-          <img
-            src="//law-office/images/map_place.png"
-            alt="법률사무소 위안 지도"
-            class="map-preview"
-          />
-        </a>
-      </div> -->
 
       <!-- ===== 정보 영역 ===== -->
       <div class="info-area">
@@ -46,7 +33,7 @@
         <h2 class="page-title">오시는 길</h2>
 
         <div class="office-name">
-          <img src="/law-office/images/logo_blue.png" alt="위안 로고" class="logo" />
+          <img :src="`${$base}images/logo_blue.png`" alt="위안 로고" class="logo" />
         </div>
 
         <ul class="info-list">
