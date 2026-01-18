@@ -1,0 +1,149 @@
+<template>
+  <main class="page practice-page">
+    <div class="practice-grid">
+      <div
+        v-for="item in items"
+        :key="item.title"
+        class="practice-card"
+        :style="{ '--bg-image': `url(${item.image})` }"
+        @click="goDetail(item.title)"
+      >
+        <span class="practice-title">{{ item.title }}</span>
+        <span class="arrow">↗</span>
+      </div>
+    </div>
+  </main>
+</template>
+
+<script setup>
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+const items = [
+  { title: '민사', image: '/images/practice/civil.png' },
+  { title: '형사', image: '/images/practice/criminal.png' },
+  { title: '회생·파산', image: '/images/practice/bankruptcy.png' },
+  { title: '가사', image: '/images/practice/family.png' },
+  { title: '기업법무', image: '/images/practice/corporate.png' },
+  { title: '건설·부동산', image: '/images/practice/realestate.png' },
+  { title: '인사·노무', image: '/images/practice/labor.png' },
+  { title: '행정', image: '/images/practice/admin.png' },
+]
+const goDetail = (title) => {
+  router.push(`/practice/${title}`)
+}
+</script>
+
+
+<style scoped>
+.practice-page {
+  padding: 120px 50px 100px;
+}
+
+.practice-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+/* 카드 */
+.practice-card {
+  position: relative;
+  height: 260px;
+  background: #f2f2ef;
+  padding: 28px;
+  cursor: pointer;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  transition: all 0.35s ease;
+}
+
+/* hover 이미지 */
+.practice-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+/* 어두운 오버레이 */
+.practice-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.practice-card:hover::before,
+.practice-card:hover::after {
+  opacity: 1;
+}
+
+/* 텍스트 */
+.practice-title {
+  font-family: 'Pretendard';
+  position: relative;
+  z-index: 2;
+  font-size: 35px;
+  font-weight: 600;
+  color: #164E78;
+  transition: color 0.3s ease;
+}
+
+.arrow {
+  font-family: 'Pretendard';
+  position: absolute;
+  top: 18px;        /* 🔥 여기 숫자로 미세조정 */
+  right: 24px;
+  z-index: 2;
+  font-size: 50px;
+  font-weight: 500;
+  color: #164E78;
+}
+
+/* hover 텍스트 색 */
+.practice-card:hover .practice-title, .practice-card:hover .arrow{
+  color: #ffffff;
+}
+
+/* =========================
+   Mobile
+========================= */
+@media (max-width: 768px) {
+  .practice-page {
+    padding: 80px 20px;
+  }
+
+  .practice-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .practice-card {
+    height: 180px;
+  }
+
+  /* 모바일 hover 비활성 */
+  .practice-card::before,
+  .practice-card::after {
+    display: none;
+  }
+
+  .practice-title {
+    font-size: 20px;
+  }
+}
+
+</style>
