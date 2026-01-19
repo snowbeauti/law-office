@@ -2,7 +2,7 @@
   <!-- 메인 -->
   <section v-if="isHome" class="hero">
     <video class="hero-video" autoplay muted loop playsinline>
-      <source :src="`${base}videos/main-hero.mp4`" type="video/mp4" />
+      <source :src="`${base}videos/main-hero_header.mp4`" type="video/mp4" />
     </video>
     <div class="hero-overlay"></div>
     <div class="hero-content">
