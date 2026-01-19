@@ -1,5 +1,6 @@
 <template>
   <main class="page practice-page">
+    <h2 class="page-practice-title">복잡한 법률 문제, 위안이 명쾌한 해답을 드립니다.</h2>
     <div class="practice-grid">
       <div
         v-for="item in items"
@@ -40,6 +41,15 @@ const goDetail = (title) => {
 <style scoped>
 .practice-page {
   padding: 120px 50px 100px;
+  text-align: center;
+}
+
+.page-practice-title {
+  font-size: 50px;
+  font-weight: 700;
+  margin-bottom: 90px;
+  color: #424242;
+  font-family: 'Pretendard';
 }
 
 .practice-grid {
@@ -119,6 +129,17 @@ const goDetail = (title) => {
 /* hover 텍스트 색 */
 .practice-card:hover .practice-title, .practice-card:hover .arrow{
   color: #ffffff;
+}
+
+.practice-page :deep(.practice-card::before) {
+  opacity: 0.2;
+}
+.practice-page :deep(.practice-card::after) {
+  opacity: 0.15;
+}
+.practice-page :deep(.practice-card:hover::before),
+.practice-page :deep(.practice-card:hover::after) {
+  opacity: 0.8;
 }
 
 /* =========================

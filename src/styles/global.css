@@ -179,10 +179,13 @@ h1, h2, h3, h4, h5, h6 {
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    rgba(0, 0, 0, 0.35),
-    rgba(0, 0, 0, 0.45)
+    rgba(0, 0, 0, 0.1),
+    rgba(0, 0, 0, 0.10)
   );
   z-index: 1;
+}
+.hero-video {
+  filter: brightness(1.05) contrast(1.05) saturate(1.05);
 }
 
 .hero-content {
@@ -197,6 +200,8 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0 20px;
   color: #ffffff;
   font-family: 'Noto Serif KR', serif;
+
+  transform: translateY(-10%);
 }
 
 .hero-content .brand {

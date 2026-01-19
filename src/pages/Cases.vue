@@ -124,11 +124,10 @@ const goDetail = (item) => {
 /* ===== 타이틀 ===== */
 .cases-title {
   font-family: 'Pretendard';
-  margin: 80px 0 50px;
+  margin: 120px 0 50px;
   text-align: center;
-  font-size: 34px;
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  font-size: 50px;
+  font-weight: 700;
 }
 
 /* ===== 카테고리 탭 ===== */

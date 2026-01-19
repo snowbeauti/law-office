@@ -1,5 +1,9 @@
 <template>
-  <section class="consult-form">
+  <section class="contact-form">
+    <!-- 상단 문구 -->
+    <h2 class="contact-title">
+      혼자 고민하지 마세요. 위안이 듣겠습니다.
+    </h2>
     <form @submit.prevent="submitForm">
 
       <!-- 상담분야 -->
@@ -149,11 +153,19 @@ function sanitizeEmail(e) {
 </script>
 
 <style scoped>
-.consult-form form {
+.contact-title{
+  font-family: 'Pretendard';
+  margin: 120px 0 50px;
+  text-align: center;
+  font-size: 50px;
+  font-weight: 700;
+}
+  
+.contact-form form {
   margin-top: 50px;
   border-top: 2px solid #838282;
 }
-.consult-form {
+.contact-form {
   max-width: 900px;
   margin: 0 auto;
 }

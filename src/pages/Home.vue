@@ -139,11 +139,21 @@ function goDetail(id) {
 <style scoped>
 
 /* ===============================
-   업무분야
+   소개
 ================================ */
   .section-about {
   background: #f5f6f7;
   padding: 80px 50px 30px;
+}
+
+/* ===============================
+   구성원
+================================ */
+:deep(.members-title) {
+  font-family: 'Noto Serif KR', serif;
+  margin-top: 30px;
+  font-size: 40px;
+  font-weight: 500;
 }
 /* ===============================
    업무분야
@@ -155,23 +165,19 @@ function goDetail(id) {
 
 .home-practice-title {
   font-family: 'Pretendard';
-  font-size: 48px;
+  font-size: 36px;
   font-weight: 700;
-  color: #424242;
   text-align: center;
 }
-
-.home-practice :deep(.practice-card::before) {
-  opacity: 0.2;
+.home-practice :deep(.practice-page) {
+  padding: 0px 50px 100px;
 }
-.home-practice :deep(.practice-card::after) {
-  opacity: 0.15;
+.home-practice :deep(.page-practice-title) {
+  font-family: 'Noto Serif KR', serif;
+  margin-top: 30px;
+  font-size: 40px;
+  font-weight: 500;
 }
-.home-practice :deep(.practice-card:hover::before),
-.home-practice :deep(.practice-card:hover::after) {
-  opacity: 0.8;
-}
-
 /* ===============================
    성공사례
 ================================ */
@@ -307,22 +313,31 @@ function goDetail(id) {
    상담문의
 ================================ */
 .home-consult {
-  padding: 120px 50px;
+  padding: 120px 50px 0px;
   background: #f9f9f9;
 }
 
 .home-consult-title {
   font-family: 'Pretendard';
-  font-size: 48px;
+  font-size: 36px;
   font-weight: 700;
   text-align: center;
-  margin-bottom: 40px;
+}
+
+.home-consult :deep(.contact-form) {
+  padding: 0px 50px 100px;
+}
+.home-consult :deep(.contact-title) {
+  font-family: 'Noto Serif KR', serif;
+  margin-top: 30px;
+  font-size: 40px;
+  font-weight: 500;
 }
 /* ===============================
    오시는길
 ================================ */
 .home-location {
-  padding: 20px 50px;
+  padding: 120px 50px;
 }
 
 .home-location-title {
@@ -331,6 +346,13 @@ function goDetail(id) {
   font-weight: 700;
   text-align: center;
   margin-bottom: 40px;
+}
+
+.home-location :deep(.directions-title) {
+  font-family: 'Noto Serif KR', serif;
+  margin-top: 30px;
+  font-size: 40px;
+  font-weight: 500;
 }
 
 </style>

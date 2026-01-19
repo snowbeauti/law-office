@@ -1,5 +1,10 @@
 <template>
   <section class="directions-page">
+    <!-- 상단 문구 -->
+    <h2 class="directions-title">
+      법률사무소 위안은 언제나 열려 있습니다.<br/> 
+      편안한 마음으로 방문해 주세요.
+    </h2>
 
     <div class="directions-wrap">
 
@@ -49,7 +54,7 @@
           <li>
             <img src="/icons/map-pin.svg" alt="주소" class="icon" />
             <span>
-              서울 서초구 서초대로 254, 1403호 (서초동, 오푸러스)
+              서울 서초구 서초대로 254, 1403호 (서초동, 오퓨런스)
             </span>
           </li>
 
@@ -74,7 +79,7 @@
             <img src="/icons/car.svg" alt="자차" class="icon" />
             <span>
               <b>자차 이용 시</b><br />
-              오푸러스 주차장 이용
+              오퓨런스 주차장 이용
             </span>
           </li>
         </ul>
@@ -133,6 +138,15 @@ function openTmap() {
 .directions-page {
   max-width: 1200px;
   margin: 0 auto 160px;
+}
+
+.directions-title{
+  font-family: 'Pretendard';
+  margin: 120px 0 50px;
+  text-align: center;
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 1.3;
 }
 
 .page-title {
