@@ -1,6 +1,6 @@
 <template>
   <main class="page practice-page">
-    <h2 class="page-practice-title">복잡한 법률 문제, 위안이 명쾌한 해답을 드립니다.</h2>
+    <h2 class="page-practice-title">복잡한 법률 문제, 위안이 <span class="brand_color">명쾌한 해답</span>을 드립니다.</h2>
     <div class="practice-grid">
       <div
         v-for="item in items"
@@ -45,7 +45,7 @@ const goDetail = (title) => {
 }
 
 .page-practice-title {
-  font-size: 50px;
+  font-size: 45px;
   font-weight: 700;
   margin-bottom: 90px;
   color: #424242;

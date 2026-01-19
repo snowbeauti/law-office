@@ -7,10 +7,10 @@
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <h2 class="title-main">
-        법이 당신에게 <span class="brand">위안</span>이 되는 순간
+        법이 당신에게 <span class="brand brand_color">위안</span>이 되는 순간
       </h2>
       <h2 class="sub title-main">
-        진정한 위안은 완벽한 솔루션에서 시작됩니다.
+        진정한 <span class="brand brand_color">위안</span>은 <span class="brand brand_color">완벽한 솔루션</span>에서 시작됩니다.
       </h2>
     </div>
   </section>

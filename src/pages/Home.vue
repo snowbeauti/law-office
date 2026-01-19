@@ -355,4 +355,10 @@ function goDetail(id) {
   font-weight: 500;
 }
 
+/* ===============================
+   전체적용
+================================ */
+ :deep(.brand_color){
+  font-weight: 700;
+}
 </style>

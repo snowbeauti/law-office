@@ -2,7 +2,7 @@
   <section class="directions-page">
     <!-- 상단 문구 -->
     <h2 class="directions-title">
-      법률사무소 위안은 언제나 열려 있습니다.<br/> 
+      <span class="brand_color">법률사무소 위안</span>은 언제나 열려 있습니다.<br/> 
       편안한 마음으로 방문해 주세요.
     </h2>
 
@@ -144,7 +144,7 @@ function openTmap() {
   font-family: 'Pretendard';
   margin: 120px 0 50px;
   text-align: center;
-  font-size: 50px;
+  font-size: 45px;
   font-weight: 700;
   line-height: 1.3;
 }

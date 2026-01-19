@@ -1,7 +1,7 @@
 <template>
   <main class="page">
     <section class="members-section">
-      <h2 class="members-title">의뢰인의 이익을 최우선으로 생각합니다.</h2>
+      <h2 class="members-title"><span class="brand_color">의뢰인의 이익</span>을 최우선으로 생각합니다.</h2>
 
       <div class="members-grid two">
         <!-- 구성원 1 -->
@@ -72,7 +72,7 @@
 }
 
 .members-title {
-  font-size: 50px;
+  font-size: 45px;
   font-weight: 700;
   margin-bottom: 50px;
   color: #424242;

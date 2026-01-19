@@ -2,7 +2,7 @@
   <section class="contact-form">
     <!-- 상단 문구 -->
     <h2 class="contact-title">
-      혼자 고민하지 마세요. 위안이 듣겠습니다.
+      혼자 고민하지 마세요. <span class="brand_color">위안</span>이 듣겠습니다.
     </h2>
     <form @submit.prevent="submitForm">
 
@@ -157,7 +157,7 @@ function sanitizeEmail(e) {
   font-family: 'Pretendard';
   margin: 120px 0 50px;
   text-align: center;
-  font-size: 50px;
+  font-size: 45px;
   font-weight: 700;
 }
   
