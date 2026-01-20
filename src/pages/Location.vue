@@ -123,15 +123,25 @@ function openKakaoMap() {
     '_blank'
   )
 }
-
 function openTmap() {
-  const name = encodeURIComponent('법률사무소 위안')
-  const lat = 37.492108
-  const lng = 127.0096568
-
-  window.location.href =
-    `tmap://route?goalname=${name}&goalx=${lng}&goaly=${lat}`
+  window.open(
+    `https://api2.sktelecom.com/tmap/app/routes?appKey=joOb8HOxel8xjCaCLHuZk8piAdromHxY2q4zmedm&name=법률사무소위안&lon=37.492108&lat=127.0096568`,
+    '_blank'
+  )
 }
+
+
+  function openTmap2() {
+    const name = encodeURIComponent('법률사무소 위안')
+    const lat = 37.492108
+    const lng = 127.0096568
+
+    const url =
+      `https://apis.openapi.sk.com/tmap/app/routes?` +
+      `rGoName=${name}&rGoX=${lng}&rGoY=${lat}`
+
+    window.location.href = url
+  }
 </script>
 
 <style scoped>
