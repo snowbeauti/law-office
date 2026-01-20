@@ -333,6 +333,49 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
 }
 
+
+
+@media (max-width: 1065px) {
+  .header-inner{
+    padding: 0px 30px;
+  }
+  .nav {
+    max-width: 1000px;
+    margin: 0;
+    padding: 0 10px;
+  }
+  .nav a,
+  .nav .nav-link {
+    font-family: 'Pretendard';
+    font-size: 13px;
+    font-weight: 500;
+    opacity: 0.9;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 10px !important;
+  }
+
+  .nav a:hover,
+  .nav .nav-link:hover {
+    opacity: 1;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;   /* 🔥 여기서 간격 제어 */
+  }
+
+  .nav a {
+    font-family: 'Pretendard';
+    font-size: 13px;
+    font-weight: 500;
+    opacity: 0.9;
+  }
+
+}
+
 /* ===============================
    Responsive
 ================================ */

@@ -78,7 +78,7 @@ function goDetail(id) {
 
   <!-- 구성원 -->
   <section class="home-members">
-    <h2 class="home-members-title">구성원</h2>
+    <!-- <h2 class="home-members-title">구성원</h2> -->
     <Members />
   </section>
 
@@ -174,6 +174,7 @@ function goDetail(id) {
 /* ===============================
    구성원
 ================================ */
+
 :deep(.members-title) {
   font-family: 'Noto Serif KR', serif;
   margin-top: 30px;

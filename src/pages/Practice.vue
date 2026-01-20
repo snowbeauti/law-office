@@ -148,7 +148,7 @@ const goDetail = (title) => {
 /* =========================
    Mobile
 ========================= */
-@media (max-width: 768px) {
+@media (max-width: 999px) {
   
   .practice-page {
     padding: 50px 20px;

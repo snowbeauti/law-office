@@ -287,7 +287,7 @@ function openTmap() {
   color: #222;
 }
 /* 반응형 */
-@media (max-width: 768px) {
+@media (max-width: 950px) {
 
 
   .map {
