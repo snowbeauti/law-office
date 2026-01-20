@@ -10,17 +10,17 @@
         </div>
 
         <p>
-          법률사무소 위안 &nbsp;|&nbsp;
-          대표변호사 이종호, 이태훈 &nbsp;|&nbsp;
+          법률사무소 위안 <span class="pipe">|</span>
+          대표변호사 이종호, 이태훈 <span class="pipe">|</span>
           광고책임변호사 이태훈
         </p>
         <p>
-          사업자등록번호 769-35-01319, 416-21-53070 &nbsp;|&nbsp;
-          전화 02-6242-3080 &nbsp;|&nbsp;
+          사업자등록번호 769-35-01319, 416-21-53070 <span class="pipe">|</span>
+          전화 02-6242-3080 <span class="pipe">|</span>
           FAX 02-6242-3081
         </p>
         <p>
-          주소 서울 서초구 서초대로 254, 1403호(서초동, 오퓨런스) &nbsp;|&nbsp;
+          주소 서울 서초구 서초대로 254, 1403호(서초동, 오퓨런스) <span class="pipe">|</span>
           E-mail leeth@comfortlaw.co.kr
         </p>
       </div>
@@ -64,7 +64,6 @@
 .footer-info {
   font-size: 14px;
   line-height: 1.7;
-  opacity: 0.95;
 }
 
 .footer-links {
@@ -78,7 +77,6 @@
 
 .footer-links .divider {
   margin: 0 8px;
-  opacity: 0.6;
 }
 
 .footer-info p {
@@ -102,7 +100,6 @@
   padding: 18px 60px;
 
   font-size: 13px;
-  opacity: 0.8;
 }
 
 /* =========================
@@ -111,7 +108,8 @@
 @media (max-width: 768px) {
   .footer-inner {
     flex-direction: column;
-    padding: 30px 20px;
+    padding: 30px 20px ;
+    gap: 0px;
   }
 
   .footer-logo {
@@ -131,5 +129,15 @@
     padding: 14px 20px;
     text-align: center;
   }
+  .footer-info {
+    font-size: 11.5px;
+    line-height: 1.7;
+  }
+  .pipe {
+    display: block;
+    height: 0;
+    overflow: hidden;
+  }
+  
 }
 </style>

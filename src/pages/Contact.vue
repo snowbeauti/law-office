@@ -85,7 +85,7 @@
           <input type="checkbox" v-model="agree" />
           개인정보 수집·이용 동의
         </label>
-        <RouterLink to="/PrivacyPolicy" class="policy-link">
+        <RouterLink to="/privacyConsent" class="policy-link">
           전문보기
         </RouterLink>
       </div>
@@ -193,6 +193,7 @@ function sanitizeEmail(e) {
   padding: 0 12px;
   border: 1px solid #ddd;
 }
+
 .checkbox input {
   width: auto;
   height: auto;
@@ -209,6 +210,7 @@ function sanitizeEmail(e) {
   align-items: center;   /* 🔥 수직 중앙 정렬 */
   gap: 6px;
 }
+
 textarea {
   min-height: 260px;
   line-height: 1.6;
@@ -291,7 +293,71 @@ textarea {
   cursor: pointer;
   font-size: 16px;
 }
+.row select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+.row select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24'%3E%3Cpath fill='%23666' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 14px;
 
+  padding-right: 48px; /* 🔥 이제 진짜 여백 */
+}
+.policy-link {
+  color: #0b2a6f;                 /* 링크 컬러 */
+  text-decoration: underline;     /* 🔥 밑줄 */
+  text-underline-offset: 3px;     /* 밑줄과 글자 간격 */
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.policy-link:hover {
+  color: #061c4a;                 /* hover 시 살짝 진하게 */
+  text-decoration-thickness: 2px; /* hover 시 강조 */
+}
+
+@media (max-width: 768px) {
+  .contact-form {
+    padding: 50px 20px;
+  }
+  .contact-title {
+    margin-top: 0px;
+    font-size: 1.12rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+  .contact-form form{
+    margin-top: 0px;
+  }
+  .row:first-child{
+    margin-top: 0px;
+  }
+  .contact-form form {
+    border-top: 1px solid #838282;
+  }
+
+  .row label {
+    font-size: 15px;
+  }
+
+  .checkbox {
+    font-size: 14px;
+  }
+  
+  .radio {
+    font-size: 14px;
+  }
+  .agree label {
+    font-size: 16px;
+  }
+  .buttons{
+    margin-bottom: 0px;
+  }
+
+}
 
 </style>
 

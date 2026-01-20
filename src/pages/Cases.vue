@@ -166,6 +166,7 @@ const goDetail = (item) => {
 
 /* ===== 리스트 ===== */
 .cases-grid {
+  font-family: 'Pretendard';
   max-width: 1200px;
   margin: 0 auto 80px;
   display: grid;
@@ -186,14 +187,6 @@ const goDetail = (item) => {
   border-color: #0b2a6f;
 }
 
-/* 카테고리 배지 */
-.badge {
-  display: inline-block;
-  margin-bottom: 14px;
-  font-size: 13px;
-  font-weight: 600;
-  color: #0b2a6f;
-}
 /* ===== 카테고리 배지 (칩 형태) ===== */
 .badges {
   display: flex;
@@ -205,6 +198,7 @@ const goDetail = (item) => {
   display: inline-flex;
   align-items: center;
   padding: 6px 14px;
+  margin-bottom: 14px;
   font-size: 14px;
   font-weight: 600;
   color: #ffffff;
@@ -215,10 +209,10 @@ const goDetail = (item) => {
 
 /* 제목 */
 .case-card .title {
-  font-size: 20px;
+  font-size: 19px;
   font-weight: 700;
-  margin-bottom: 10px;
-  line-height: 1.4;
+  margin-bottom: 14px;
+  line-height: 1.45;
 }
 
 /* 사건개요 미리보기 */
@@ -251,27 +245,58 @@ const goDetail = (item) => {
   border-color: #0b2a6f;
 }
 
-/* ===== 반응형 ===== */
-@media (max-width: 1024px) {
-  .cases-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .cases-tabs {
     flex-wrap: wrap;
     gap: 16px;
+    margin-bottom: 30px;
   }
 
   .cases-grid {
+    width: 90%;
     grid-template-columns: 1fr;
     gap: 24px;
   }
 
   .cases-title {
     font-size: 26px;
-    margin-top: 60px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    padding: 50px 20px 0px;
+    font-size: 1.24rem;
+  }
+
+  .badges {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 2px;
+  }
+
+  .badge {
+    padding: 6px 10px;
+    margin-bottom: 10px;
+    font-size: 12px;
+  }
+
+  .case-card {
+    border: 1.5px solid #e5e5e5;
+    padding: 20px 26px;
+    cursor: pointer;
+    background: #fff;
+  }
+  /* 제목 */
+  .case-card .title {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    line-height: 1.4;
+  }
+  /* 사건개요 미리보기 */
+  .case-card .overview {
+    font-size: 12px;
+    line-height: 1.7;
+    color: #555;
   }
 }
 </style>

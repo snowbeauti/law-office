@@ -287,13 +287,59 @@ function openTmap() {
   color: #222;
 }
 /* 반응형 */
-@media (max-width: 900px) {
-  .directions-wrap {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 768px) {
+
 
   .map {
     height: 360px;
   }
+  .directions-page {
+    padding: 50px 20px;
+    margin: 0 auto;
+  }
+  .directions-title {
+    margin-top: 0px;
+    font-size: 1.12rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+
+  /* 전체를 세로 스택으로 */
+  .directions-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 0px;
+  }
+
+  /* 순서 재정렬 */
+  .info-area {
+    order: 2;
+  }
+
+  .map-area {
+    order: 1;
+    width: 100%;
+    height: 300px;
+  }
+  .map-btn{
+    height: 40px;
+  }
+
+  .page-title {
+    font-size: 1.6rem;
+    margin-bottom: 40px;
+  }
+
+  .page-title::after {
+    height: 2px;
+  }
+  .map-links {
+    margin-top: 16px;
+  }
+
+  
+
+
 }
 </style>

@@ -134,14 +134,14 @@ const goDetail = (title) => {
   color: #ffffff;
 }
 
-.practice-page :deep(.practice-card::before) {
+.practice-page .practice-card::before {
   opacity: 0.2;
 }
-.practice-page :deep(.practice-card::after) {
+.practice-page .practice-card::after {
   opacity: 0.15;
 }
-.practice-page :deep(.practice-card:hover::before),
-.practice-page :deep(.practice-card:hover::after) {
+.practice-page .practice-card:hover::before,
+.practice-page .practice-card:hover::after {
   opacity: 0.8;
 }
 
@@ -161,16 +161,36 @@ const goDetail = (title) => {
 
   .practice-card {
     height: 180px;
+    padding: 20px 10px;
   }
 
   /* 모바일 hover 비활성 */
-  .practice-card::before,
-  .practice-card::after {
-    display: none;
+
+  .practice-page .practice-card::before {
+    opacity: 0.8;
   }
 
+  /* 어두운 오버레이 */
+  .practice-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 1);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+  }
+
+  .arrow{
+    color: #ffffff;
+    top: 17px;        /* 🔥 여기 숫자로 미세조정 */
+    right: 14px;
+    z-index: 2;
+    font-size: 30px;
+    font-weight: 500;
+  }
   .practice-title {
-    font-size: 20px;
+    font-size: 21px;
+    color: #ffffff;
   }
 
   .page-practice-title {

@@ -186,7 +186,7 @@ defineProps({
   /* 본문 */
 .about-subtext {
   font-family: 'Pretendard';
-  font-size: 22px;
+  font-size: 16px;
   line-height: 1.7;
   margin: 15px 0;
   font-weight: 500;

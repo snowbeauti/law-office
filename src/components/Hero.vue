@@ -76,6 +76,7 @@ const map = {
   '/contact':  { title: '상담문의', img: `${base}images/contact.png` },
   '/location': { title: '오시는길', img: `${base}images/location.png` },
   '/PrivacyPolicy': { title: '개인정보처리방침', img: `${base}images/PrivacyPolicy.png` },
+  '/privacyConsent': { title: '개인정보 수집∙이용 동의', img: `${base}images/PrivacyPolicy.png` },
 }
 
 const conf = computed(() => {

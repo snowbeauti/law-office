@@ -232,4 +232,56 @@ function formatText(text) {
   margin: 120px 0;
   color: #777;
 }
+
+/* 모바일 */
+@media (max-width: 768px) {
+  .case-body{
+    margin-top: 90px;
+  }
+  .case-title{
+    font-size: 22px;
+    margin-bottom: 30px;
+  }
+  .case-section{
+    margin-bottom: 50px;
+  }
+
+  .case-section h3{
+    font-size: 20px;
+  }
+  
+  .case-section p{
+    font-size: 18px;
+      
+  }
+  .judgment-images{
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  .case-detail {
+    margin: 0 auto 50px;
+  }
+  
+  /* ===== 판결문 이미지 모바일 통합 ===== */
+
+  .single-image,
+  .double-images,
+  .multi-images {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .single-image img,
+  .double-images img,
+  .multi-images img {
+    width: 100%;
+    max-width: 100%;
+    border: 1px solid #424242;
+  }
+
+}
 </style>

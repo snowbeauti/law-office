@@ -60,7 +60,7 @@
           <h4 class="title">{{ item.title }}</h4>
 
           <p class="overview">
-            {{ item.overview.replace(/\n/g, '').slice(0, 70) }}...
+            {{ item.overview.replace(/\n/g, '').slice(0, 90) }}...
           </p>
         </div>
       </div>
@@ -284,19 +284,20 @@ const goCaseDetail = (item) => {
 
 /* 카드 그리드 */
 .cases-grid {
+  max-width: 1200px;
+  margin: 0 auto 80px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
+  gap: 40px;
 }
 
 /* 카드 */
 .case-card {
   border: 1px solid #e5e5e5;
-  padding: 36px 34px 40px;
-  background: #fff;
+  padding: 28px 26px 32px;
   cursor: pointer;
-  transition: border-color 0.15s ease;
-  min-height: 260px;
+  transition: border-color 0.2s ease;
+  background: #fff;
 }
 
 .case-card:hover {
@@ -311,12 +312,16 @@ const goCaseDetail = (item) => {
 }
 
 .badge {
+  display: inline-flex;
+  align-items: center;
   padding: 6px 14px;
-  font-size: 13px;
+  margin-bottom: 14px;
+  font-size: 14px;
   font-weight: 600;
-  color: #fff;
-  background-color: #004572;
+  color: #ffffff;
+  background-color: #0b4a7f; /* 네 이미지랑 거의 동일 */
   border-radius: 6px;
+  line-height: 1;
 }
 
 /* 카드 제목 */
@@ -331,13 +336,86 @@ const goCaseDetail = (item) => {
 .case-card .overview {
   font-size: 15px;
   line-height: 1.7;
-  color: #666;
+  color: #555;
+  font-family: 'Pretendard';
 }
 
 /* 모바일 */
 @media (max-width: 768px) {
   .cases-grid {
     grid-template-columns: 1fr;
+  }
+  .practice-detail {
+    padding: 50px 20px;
+  }
+
+  /* 제목 */
+  .practice-header h1 {
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  /* 한 줄 메시지 */
+  .practice-lead {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  .practice-highlight {
+    margin-bottom: 0px;
+  }
+  .practice-highlight p {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .practice-list li {
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 0px;
+  }
+  /* ===== 주요 성공사례 ===== */
+  .related-cases {
+    margin-top: 60px;
+    padding-top: 30px;
+    border-top: 1px solid #e5e5e5;
+  }
+
+  
+  .cases-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .badges {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 2px;
+  }
+
+  .badge {
+    padding: 6px 10px;
+    margin-bottom: 10px;
+    font-size: 12px;
+  }
+  .case-card {
+    border: 1.5px solid #e5e5e5;
+    padding: 20px 26px;
+    cursor: pointer;
+    background: #fff;
+  }
+  /* 제목 */
+  .case-card .title {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    line-height: 1.4;
+  }
+  /* 사건개요 미리보기 */
+  .case-card .overview {
+    font-size: 12px;
+    line-height: 1.7;
+    color: #555;
   }
 }
 

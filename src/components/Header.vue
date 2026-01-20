@@ -54,7 +54,9 @@
   <!-- 모바일 메뉴 -->
   <div v-if="isMenuOpen" class="mobile-menu">
     <div class="mobile-menu-header">
-      <img :src="`${$base}images/logo_blue.png`" alt="법률사무소 위안" />
+      <RouterLink to="/" @click="closeMenu">
+        <img :src="`${$base}images/logo_blue.png`" alt="법률사무소 위안" />
+      </RouterLink>
       <button class="close" @click="closeMenu">✕</button>
     </div>
 

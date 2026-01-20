@@ -171,5 +171,18 @@
   .policy-content h2 {
     font-size: 18px;
   }
+
+  .policy-content p {
+    margin-bottom: 10px;
+  }
+
+  .policy-content ul {
+    margin: 12px 0 24px 18px;
+    padding-left: 5px;
+  }
+
+  .policy-content li {
+    margin-bottom: 8px;
+  }
 }
 </style>

@@ -5,35 +5,56 @@ import Practice from '../pages/Practice.vue'
 import Contact from '../pages/Contact.vue'
 import Location from '../pages/Location.vue'
 
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { cases } from '../data/cases'
 
 const router = useRouter()
 
-/* Home용 최대 10개 */
+/* 홈용 성공사례 (최대 10개) */
 const homeCases = computed(() =>
   [...cases].sort((a, b) => b.id - a.id).slice(0, 10)
 )
 
-const VISIBLE_COUNT = 3
+/* 반응형 기준 */
+const visibleCount = ref(3)
 const currentIndex = ref(0)
 
-/* 슬라이드 이동 스타일 */
+function updateVisibleCount() {
+  visibleCount.value = window.innerWidth <= 768 ? 1 : 3
+
+  /* 화면 전환 시 index 보정 */
+  if (currentIndex.value > homeCases.value.length - visibleCount.value) {
+    currentIndex.value = Math.max(
+      homeCases.value.length - visibleCount.value,
+      0
+    )
+  }
+}
+
+onMounted(() => {
+  updateVisibleCount()
+  window.addEventListener('resize', updateVisibleCount)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', updateVisibleCount)
+})
+
+/* 슬라이드 이동 */
 const trackStyle = computed(() => ({
-  transform: `translateX(-${(100 / VISIBLE_COUNT) * currentIndex.value}%)`
+  transform: `translateX(-${(100 / visibleCount.value) * currentIndex.value}%)`
 }))
 
-/* 좌우 이동 (1칸씩) */
 function prev() {
   if (currentIndex.value > 0) {
-    currentIndex.value -= 1
+    currentIndex.value--
   }
 }
 
 function next() {
-  if (currentIndex.value < homeCases.value.length - VISIBLE_COUNT) {
-    currentIndex.value += 1
+  if (currentIndex.value < homeCases.value.length - visibleCount.value) {
+    currentIndex.value++
   }
 }
 
@@ -52,11 +73,14 @@ function goDetail(id) {
 
   <!-- 소개 -->
   <section class="section-about">
-  <About />
+    <About />
   </section>
-  
+
   <!-- 구성원 -->
-  <Members />
+  <section class="home-members">
+    <h2 class="home-members-title">구성원</h2>
+    <Members />
+  </section>
 
   <!-- 업무분야 -->
   <section class="home-practice">
@@ -81,39 +105,41 @@ function goDetail(id) {
         ‹
       </button>
 
-      <!-- 🔥 뷰포트 -->
+      <!-- 뷰포트 -->
       <div class="slider-viewport">
-        <div class="cases-track" :style="trackStyle">
-          <div
-            v-for="item in homeCases"
-            :key="item.id"
-            class="case-card"
-            @click="goDetail(item.id)"
-          >
-            <div class="badges">
-              <span
-                v-for="cat in item.categories"
-                :key="cat"
-                class="badge"
-              >
-                {{ cat }}
-              </span>
-            </div>
+        <div class="slider-mask">
+          <div class="cases-track" :style="trackStyle">
+            <div
+              v-for="item in homeCases"
+              :key="item.id"
+              class="case-card"
+              @click="goDetail(item.id)"
+            >
+              <div class="badges">
+                <span
+                  v-for="cat in item.categories"
+                  :key="cat"
+                  class="badge"
+                >
+                  {{ cat }}
+                </span>
+              </div>
 
-            <h3 class="case-title">{{ item.title }}</h3>
-            <p class="overview">{{ excerpt(item.overview) }}</p>
+              <h3 class="case-title">{{ item.title }}</h3>
+              <p class="overview">{{ excerpt(item.overview) }}</p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- 다음 -->
-      <button
-        class="nav next"
-        @click="next"
-        :disabled="currentIndex >= homeCases.length - VISIBLE_COUNT"
-      >
-        ›
-      </button>
+        <!-- 다음 -->
+        <button
+          class="nav next"
+          @click="next"
+          :disabled="currentIndex >= homeCases.length - visibleCount"
+        >
+          ›
+        </button>
+      </div>
     </div>
 
     <div class="more">
@@ -128,12 +154,11 @@ function goDetail(id) {
     <h2 class="home-consult-title">상담문의</h2>
     <Contact />
   </section>
+
   <!-- 오시는길 -->
   <section class="home-location">
     <Location />
   </section>
-  <SectionPractice />
-  <SectionCases />
 </template>
 
 <style scoped>
@@ -193,16 +218,14 @@ function goDetail(id) {
 }
 
 .section-header .title {
-  font-family: 'Pretendard';
   font-size: 36px;
   font-weight: 700;
 }
 
 .section-header .desc {
-  font-family: 'Noto Serif KR', serif;
   margin-top: 30px;
   font-size: 40px;
-  font-weight: 500;
+  font-family: 'Noto Serif KR', serif;
 }
 
 /* 슬라이더 */
@@ -210,29 +233,30 @@ function goDetail(id) {
   position: relative;
   max-width: 1200px;
   margin: 0 auto;
-  display: flex;
-  align-items: center;
 }
 
 .slider-viewport {
+  position: relative;
+  padding: 0 64px; /* 화살표 영역 */
+}
+/* 🔥 카드가 실제로 보이는 영역 */
+.slider-mask {
   overflow: hidden;
   width: 100%;
 }
-
 .cases-track {
   display: flex;
+  gap: 18.5px;
   transition: transform 0.45s ease;
-  gap: 25px;
 }
 
-/* 카드 (3개 기준) */
+/* 카드 (PC: 3개) */
 .case-card {
-  flex: 0 0 calc(94% / 3);
-  box-sizing: border-box;
+  flex: 0 0 calc((100% - 50px) / 3);
   border: 1px solid rgba(255,255,255,0.35);
   padding: 36px 32px;
+  box-sizing: border-box;
   cursor: pointer;
-  transition: all 0.25s ease;
 }
 
 .case-card:hover {
@@ -240,45 +264,14 @@ function goDetail(id) {
   border-color: #B08A5A;
 }
 
-/* 화살표 */
-.nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  font-size: 52px;
-  color: #B08A5A;
-  cursor: pointer;
-  opacity: 0.85;
-}
-
-.nav:disabled {
-  opacity: 0.2;
-  cursor: default;
-}
-
-.nav.prev {
-  left: -80px;
-}
-
-.nav.next {
-  right: -80px;
-}
-
 /* 배지 */
-.badges {
-  margin-bottom: 18px;
-}
-
 .badge {
-  display: inline-block;
   padding: 6px 14px;
+  margin-right: 6px;
+  background: #B08A5A;
+  color: #0b1e3c;
   font-size: 13px;
   font-weight: 600;
-  margin-right: 5px;
-  color: #0b1e3c;
-  background: #B08A5A;
   border-radius: 4px;
 }
 
@@ -287,12 +280,38 @@ function goDetail(id) {
   font-size: 22px;
   font-weight: 700;
   margin-bottom: 14px;
+  margin-top: 15px;
 }
 
 .overview {
   font-size: 15px;
   line-height: 1.7;
   color: #e1e6ef;
+}
+
+/* 화살표 */
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 52px;
+  background: none;
+  border: none;
+  color: #B08A5A;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.nav:disabled {
+  opacity: 0.25;
+}
+
+.nav.prev {
+  left: 12px;
+}
+
+.nav.next {
+  right: 12px;
 }
 
 /* 더보기 */
@@ -307,7 +326,6 @@ function goDetail(id) {
   background: none;
   color: #B08A5A;
   font-weight: 600;
-  cursor: pointer;
 }
 /* ===============================
    상담문의
@@ -376,8 +394,20 @@ function goDetail(id) {
 /* ===============================
    구성원
 ================================ */
+.home-members {
+  text-align: center;
+  padding: 50px 0px;
+}
+.home-members .page{
+  padding: 0px 20px;
+
+}
+.home-members-title{
+  font-size: 28px;
+}
 :deep(.members-title) {
     font-size: 1.18rem;
+    margin-top: 30px;
 }
 /* ===============================
    업무분야
@@ -395,17 +425,134 @@ function goDetail(id) {
 .home-practice :deep(.page-practice-title) {
   font-family: 'Noto Serif KR', serif;
   margin-top: 30px;
-    font-size: 1.18rem;
+  font-size: 1.18rem;
   font-weight: 500;
 }
 /* ===============================
    성공사례
 ================================ */
+
+  .section-cases {
+    padding: 50px 20px;
+  }
+
+  .section-header{
+    margin-bottom: 20px;
+  }
+
+  .section-header .title {
+    font-size: 28px;
+  }
+
+  .section-header .desc {
+    font-size: 1.15rem;
+  }
+  .slider-viewport {
+    padding: 0 20px;
+  }
+  .case-card {
+    flex: 0 0 100%;
+    padding: 20 15px;
+  }
+
+  .cases-track {
+    gap: 0;
+  }
+    /* 화살표 다시 살리기 */
+  .nav {
+    display: block;
+    font-size: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
+    color: #B08A5A;
+  }
+
+  .nav.prev {
+    left: -5px;
+  }
+
+  .nav.next {
+    right: -5px;
+  }
+
+  /* 중요: 화살표가 잘리지 않도록 */
+  .slider-viewport {
+    overflow: visible;
+  }
+
+  .slider-mask {
+    overflow: hidden;
+    width: 96%;
+    margin-left: 2%;
+  }
+   .badges {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 2px;
+  }
+
+  .badge {
+    padding: 6px 10px;
+    margin-bottom: 10px;
+    font-size: 12px;
+  }
+  
+  /* 제목 */
+  .case-card .case-title {
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    line-height: 1.4;
+  }
+  /* 사건개요 미리보기 */
+  .case-card .overview {
+    font-size: 12px;
+    line-height: 1.7;
+    color: #b9b9b9;
+    margin-bottom: 0px;
+  }
+
+  .more{
+    margin-top: 40px;
+  }
+  .more button{
+    padding: 10px 30px;
+  }
 /* ===============================
    상담문의
 ================================ */
+.home-consult {
+  padding: 50px 20px;
+}
+.home-consult :deep(.contact-form) {
+  padding: 0;
+}
+.home-consult-title{
+  font-size: 28px;
+}
+.home-consult :deep(.contact-title) {
+  font-family: 'Noto Serif KR', serif;
+  margin-top: 30px;
+  font-size: 1.12rem;
+  font-weight: 500;
+}
 /* ===============================
    오시는길
 ================================ */
+.home-location {
+  padding: 50px 20px;
+}
+
+.home-location :deep(.directions-page) {
+  padding: 0;
+}
+.home-location :deep(.directions-title) {
+    margin-top: 0px;
+    font-size: 1.12rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
 }
 </style>
