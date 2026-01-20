@@ -4,7 +4,7 @@
 
 @font-face {
   font-family: 'Noto Serif KR';
-  src: url('/fonts/NotoSerifKR-Regular.woff2') format('woff2');
+  src: url('/fonts/NotoSerifKR-Regular.ttf') format('ttf');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -12,7 +12,7 @@
 
 @font-face {
   font-family: 'Noto Serif KR';
-  src: url('/fonts/NotoSerifKR-SemiBold.woff2') format('woff2');
+  src: url('/fonts/NotoSerifKR-SemiBold.ttf') format('ttf');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
