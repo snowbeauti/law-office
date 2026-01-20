@@ -361,4 +361,51 @@ function goDetail(id) {
  :deep(.brand_color){
   font-weight: 700;
 }
+
+/* ===============================
+   모바일버전
+================================ */
+
+@media (max-width: 768px) {
+/* ===============================
+   소개
+================================ */
+.section-about{
+  padding: 0;
+}
+/* ===============================
+   구성원
+================================ */
+:deep(.members-title) {
+    font-size: 1.18rem;
+}
+/* ===============================
+   업무분야
+================================ */
+.home-practice {
+  background: #f5f6f7;
+  padding: 50px 20px;
+}
+.home-practice :deep(.practice-page) {
+  padding: 0;
+}
+.home-practice-title{
+  font-size: 28px;
+}
+.home-practice :deep(.page-practice-title) {
+  font-family: 'Noto Serif KR', serif;
+  margin-top: 30px;
+    font-size: 1.18rem;
+  font-weight: 500;
+}
+/* ===============================
+   성공사례
+================================ */
+/* ===============================
+   상담문의
+================================ */
+/* ===============================
+   오시는길
+================================ */
+}
 </style>

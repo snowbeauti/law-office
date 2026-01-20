@@ -11,6 +11,7 @@ import Member1 from '../pages/Member1.vue'
 import Member2 from '../pages/Member2.vue'
 import PracticeDetail from '../pages/PracticeDetail.vue'
 import CaseDetail from '../pages/CaseDetail.vue'
+import PrivacyPolicy from '../pages/PrivacyPolicy.vue'
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -23,6 +24,7 @@ const router = createRouter({
     { path: '/contact', component: Contact },
     { path: '/location', component: Location },
     { path: '/practice/:title', name: 'PracticeDetail', component: PracticeDetail},
+    { path: '/PrivacyPolicy', name: 'PrivacyPolicy', component: PrivacyPolicy},
     { path: '/cases/:id', component: CaseDetail,
         meta: {
             showSubHero: false,

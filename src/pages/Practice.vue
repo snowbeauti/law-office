@@ -1,6 +1,9 @@
 <template>
   <main class="page practice-page">
-    <h2 class="page-practice-title">복잡한 법률 문제, 위안이 <span class="brand_color">명쾌한 해답</span>을 드립니다.</h2>
+    <h2 class="page-practice-title">
+      <span class="break-mobile">복잡한 법률 문제,</span>
+      위안이 <span class="brand_color">명쾌한 해답</span>을 드립니다.
+    </h2>
     <div class="practice-grid">
       <div
         v-for="item in items"
@@ -45,7 +48,7 @@ const goDetail = (title) => {
 }
 
 .page-practice-title {
-  font-size: 45px;
+  font-size: 40px;
   font-weight: 700;
   margin-bottom: 90px;
   color: #424242;
@@ -146,8 +149,9 @@ const goDetail = (title) => {
    Mobile
 ========================= */
 @media (max-width: 768px) {
+  
   .practice-page {
-    padding: 80px 20px;
+    padding: 50px 20px;
   }
 
   .practice-grid {
@@ -167,6 +171,16 @@ const goDetail = (title) => {
 
   .practice-title {
     font-size: 20px;
+  }
+
+  .page-practice-title {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+  }
+  
+  .break-mobile {
+    display: block;
+    margin-bottom: 6px; /* 줄 간격 미세조정 */
   }
 }
 

@@ -175,6 +175,9 @@ defineProps({
     font-size: 23px;
   }
   
+  .about-lead2 {
+    margin: 0px;
+  }
   .about-lead2 .brand{
     color: #164E78;
     font-weight: 800;

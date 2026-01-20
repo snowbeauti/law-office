@@ -85,7 +85,9 @@
           <input type="checkbox" v-model="agree" />
           개인정보 수집·이용 동의
         </label>
-        <a @click.prevent="openPolicy">전문보기</a>
+        <RouterLink to="/PrivacyPolicy" class="policy-link">
+          전문보기
+        </RouterLink>
       </div>
 
       <!-- 버튼 -->
@@ -124,9 +126,6 @@ const onFileChange = (e) => {
   fileName.value = form.file?.name || ''
 }
 
-function openPolicy() {
-  alert('개인정보 처리방침 페이지 연결')
-}
 
 function submitForm() {
   if (!agree.value) {
@@ -157,7 +156,7 @@ function sanitizeEmail(e) {
   font-family: 'Pretendard';
   margin: 120px 0 50px;
   text-align: center;
-  font-size: 45px;
+  font-size: 40px;
   font-weight: 700;
 }
   
@@ -199,6 +198,16 @@ function sanitizeEmail(e) {
   height: auto;
   padding: 0;
   border: none;
+}
+.agree input[type="checkbox"] {
+  transform: scale(1.1); /* 대략 18×18 체감 */
+  transform-origin: center; /* 🔥 기준점 명확히 */
+  margin: 0;                /* 🔥 여백 리셋 */
+}
+.agree label {
+  display: flex;
+  align-items: center;   /* 🔥 수직 중앙 정렬 */
+  gap: 6px;
 }
 textarea {
   min-height: 260px;

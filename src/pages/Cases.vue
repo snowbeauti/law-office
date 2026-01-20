@@ -126,7 +126,7 @@ const goDetail = (item) => {
   font-family: 'Pretendard';
   margin: 120px 0 50px;
   text-align: center;
-  font-size: 45px;
+  font-size: 40px;
   font-weight: 700;
 }
 

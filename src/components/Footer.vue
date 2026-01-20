@@ -4,7 +4,9 @@
       <!-- 좌측 정보 -->
       <div class="footer-info">
         <div class="footer-links">
-          <span>[개인정보처리방침]</span>
+          <RouterLink to="/PrivacyPolicy" class="footer-link">
+            [개인정보처리방침]
+          </RouterLink>
         </div>
 
         <p>

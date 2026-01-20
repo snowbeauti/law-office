@@ -58,6 +58,12 @@
   box-sizing: border-box;
 }
 
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
@@ -137,16 +143,33 @@ h1, h2, h3, h4, h5, h6 {
 /* =========================================================
    Navigation
 ========================================================= */
+/* nav 공통 링크 */
+.nav a,
+.nav .nav-link {
+  font-family: 'Pretendard';
+  font-size: 18px;
+  font-weight: 500;
+  opacity: 0.9;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 16px !important;
+}
+
+.nav a:hover,
+.nav .nav-link:hover {
+  opacity: 1;
+}
 
 .nav {
   display: flex;
   align-items: center;
+  gap: 32px;   /* 🔥 여기서 간격 제어 */
 }
 
 .nav a {
   font-family: 'Pretendard';
-  margin-left: 32px;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
   opacity: 0.9;
 }
@@ -154,6 +177,7 @@ h1, h2, h3, h4, h5, h6 {
 .nav a:hover {
   opacity: 1;
 }
+
 
 /* =========================================================
    Hero Section (index only)
@@ -388,13 +412,182 @@ h1, h2, h3, h4, h5, h6 {
   color: #ffffff;
   font-family: 'Noto Serif KR', serif;
   margin-top: 200px;
+  
+  transform: translateY(13%);
 }
 .title-main {
-  font-size: 22px;
+  font-size: 1.4rem;
   font-weight: 500;
   line-height: 1.5;
   margin-bottom: 3px;
 }
+}
+/* =========================================================
+   Mobile Menu – FINAL (REPLACE ALL)
+========================================================= */
+
+/* 모바일 메뉴 전체 */
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  background: #ffffff;
+  z-index: 2000;
+  padding: 24px;
+}
+
+/* 헤더 */
+.mobile-menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mobile-menu-header img {
+  height: 36px;
+}
+
+.mobile-menu-header .close {
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* =========================================================
+   Mobile Nav (메뉴 리스트)
+========================================================= */
+
+.mobile-nav {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;                 /* 🔥 간격 통일 */
+}
+/* =========================================================
+   모바일 메뉴 기본
+========================================================= */
+
+.mobile-menu {
+  background: #ffffff;
+}
+
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================================================
+   모바일 1차 메뉴 (기존 메뉴 전용)
+   👉 업무분야 제외
+========================================================= */
+
+.mobile-nav > a {
+  font-family: 'Pretendard';
+  display: block;
+  width: 100%;
+
+  padding: 12px 4px;
+
+  font-size: 24px;
+  color: #111;
+
+  background: none;
+  border: none;
+  text-align: left;
+}
+
+/* 터치 피드백 */
+.mobile-nav > a:active {
+  background: #f5f5f5;
+}
+
+/* =========================================================
+   업무분야 (mobile-sub) — 완전 분리
+========================================================= */
+
+.mobile-sub {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 🔥 업무분야 버튼만 */
+.mobile-sub > button {
+  font-family: 'Pretendard';
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  padding: 12px 4px;
+
+  font-size: 24px;
+  font-weight: 600;
+  color: #111;
+
+  background: none;
+  border: none;
+  outline: none;
+
+  text-align: left;
+  cursor: pointer;
+}
+
+/* 터치 피드백 */
+.mobile-sub > button:active {
+  background: #f5f5f5;
+}
+
+/* =========================================================
+   업무분야 하위 리스트
+========================================================= */
+
+.mobile-sub-list {
+  display: flex;
+  flex-direction: column;
+  padding-left: 12px;
+  margin: 0 ;
+}
+
+.mobile-sub-list a {
+  padding: 6px 4px;
+
+  font-size: 16px;
+  font-weight: 400;
+  color: #333;
+
+  display: flex;
+  align-items: center;
+}
+
+/* 터치 피드백 */
+.mobile-sub-list a:active {
+  background: #f2f2f2;
+}
+
+/* =========================================================
+   기본 UI / 테두리 완전 제거
+========================================================= */
+
+.mobile-sub,
+.mobile-sub > button,
+.mobile-sub-list,
+.mobile-sub-list a {
+  border: none !important;
+  box-shadow: none !important;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+/* =========================================================
+   화살표 애니메이션
+========================================================= */
+
+.mobile-sub button span {
+  transition: transform 0.2s ease;
+}
+
+.mobile-sub button span.open {
+  transform: rotate(180deg);
 }
 
 

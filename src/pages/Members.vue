@@ -72,7 +72,7 @@
 }
 
 .members-title {
-  font-size: 45px;
+  font-size: 40px;
   font-weight: 700;
   margin-bottom: 50px;
   color: #424242;
@@ -196,6 +196,9 @@
 
 /* ✅ 모바일: 세로 스택 (flex) */
 @media (max-width: 768px) {
+  .page{
+    padding: 50px 20px
+  }
   .members-section{
     padding: 0px;
 
@@ -209,7 +212,7 @@
   }
 
   .members-title {
-    font-size: 21px;
+    font-size: 1.24rem;
   }
 
   /* 모바일에서는 hover 효과 제거 */
@@ -218,7 +221,13 @@
     display: none;
   }
   .member-photo{
-    padding: 40px 0px 20px;
+    padding: 20px 0px 20px;
+  }
+  .member-name{
+    font-size: 30px;
+  }
+  .member-job{
+    line-height: 1.2;
   }
 }
 </style>
