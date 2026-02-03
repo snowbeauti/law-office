@@ -172,6 +172,8 @@ const goDetail = (item) => {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 40px;
+  position: relative;
+  z-index: 1;
 }
 
 /* ===== 카드 ===== */

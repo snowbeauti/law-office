@@ -521,6 +521,7 @@ function goDetail(id) {
   .more button{
     padding: 10px 30px;
   }
+
 /* ===============================
    상담문의
 ================================ */
@@ -555,5 +556,6 @@ function goDetail(id) {
     font-weight: 500;
     margin-bottom: 20px;
 }
+
 }
 </style>

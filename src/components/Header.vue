@@ -23,7 +23,6 @@
         <div class="nav-item has-sub">
           <RouterLink to="/practice" class="nav-link">
             업무분야
-            <span class="arrow">▾</span>
           </RouterLink>
 
           <ul class="sub-menu">
