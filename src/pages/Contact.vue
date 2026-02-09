@@ -137,8 +137,8 @@ function submitForm() {
   isSending.value = true
 
   emailjs.send(
-    'service_i8khjgb',
-    'template_kbz30sk',
+    'service_pe2sk6c',
+    'template_6qtizpt',
     {
       category: form.category,
       name: form.name,
@@ -147,7 +147,7 @@ function submitForm() {
       title: form.title,
       content: form.content,
     },
-    '1YC9ggQvkl14_re0J'
+    'ZsoEvL3F9KkHu579e'
   )
   .then(() => {
     alert(`상담 신청이 완료되었습니다.\n담당 변호사가 확인 후 ${form.phone} 번호로 연락 드리겠습니다`)

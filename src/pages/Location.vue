@@ -2,7 +2,7 @@
   <section class="directions-page">
     <!-- 상단 문구 -->
     <h2 class="directions-title">
-      <span class="brand_color">법률사무소 위안</span>은 언제나 열려 있습니다.~~~<br/> 
+      <span class="brand_color">법률사무소 위안</span>은 언제나 열려 있습니다.<br/> 
       편안한 마음으로 방문해 주세요.
     </h2>
 
@@ -125,7 +125,7 @@ function openKakaoMap() {
 }
 function openTmap() {
   window.open(
-    `https://api2.sktelecom.com/tmap/app/routes?appKey=UsOCBjCCpE377JbSZu8h4akuYLGUwQMO6NCI1tJ1&name=법률사무소위안&lon=127.0096568&lat=37.492108`,
+    `https://api2.sktelecom.com/tmap/app/routes?appKey=joOb8HOxel8xjCaCLHuZk8piAdromHxY2q4zmedm&name=법률사무소위안&lon=127.0096568&lat=37.492108`,
     '_blank'
   )
 }
