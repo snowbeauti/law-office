@@ -10,7 +10,7 @@
       <div class="row">
         <label>상담분야</label>
         <select v-model="form.category" class="select">
-          <option value="">선택해주세요</option>
+          <option value="" disabled hidden>선택해주세요</option>
           <option v-for="c in categories" :key="c" :value="c">{{ c }}</option>
         </select>
       </div>
@@ -23,7 +23,7 @@
         </div>
         <div>
           <label>연락처</label>
-          <input v-model="form.phone" placeholder="연락처를 입력하세요."  maxlength="13" type="tel" inputmode="numeric" pattern="[0-9]*" 
+          <input v-model="form.phone" placeholder="연락처를 입력하세요."  maxlength="11" type="tel" inputmode="numeric" pattern="[0-9]*" 
             @input="form.phone = form.phone.replace(/[^0-9]/g, '')"/>
         </div>
       </div>
@@ -51,33 +51,6 @@
         <textarea v-model="form.content"></textarea>
       </div>
 
-      <!-- 첨부파일 여부 -->
-      <div class="row">
-        <label class="row-label">첨부파일</label>
-
-        <div class="row-content">
-          
-          <label class="radio">
-            <input
-              type="radio"
-              value="N"
-              v-model="form.hasFile"
-            />
-            무
-          </label>
-
-          <label class="radio">
-            <input
-              type="radio"
-              value="Y"
-              v-model="form.hasFile"
-            />
-            유
-          </label>
-
-        </div>
-      </div>
-
 
       <!-- 개인정보 동의 -->
       <div class="agree">
@@ -95,12 +68,20 @@
         <button class="submit">작성완료</button>
       </div>
 
+      <input
+        type="text"
+        v-model="form.hp"
+        autocomplete="off"
+        tabindex="-1"
+        style="display:none"
+      />
     </form>
   </section>
 </template>
 
 <script setup>
 import { ref, reactive } from 'vue'
+import emailjs from 'emailjs-com'
 
 const categories = [
   '민사', '형사', '회생∙파산', '가사',
@@ -114,7 +95,6 @@ const form = reactive({
   email: '',
   title: '',
   content: '',
-  hasFile: 'N'   // 기본값: 무
 })
 
 const agree = ref(false)
@@ -126,21 +106,64 @@ const onFileChange = (e) => {
   fileName.value = form.file?.name || ''
 }
 
+const isSending = ref(false)
 
 function submitForm() {
-  if (!agree.value) {
-    alert('개인정보 수집·이용 동의가 필요합니다.')
+
+  if (
+    !form.category ||
+    !form.name.trim() ||
+    !form.phone.trim() ||
+    !form.email.trim() ||
+    !form.title.trim() ||
+    !form.content.trim()
+  ) {
+    alert('상담분야, 이름, 연락처, 이메일, 제목, 내용을 모두 입력해주세요.')
     return
   }
 
   // 연락처 숫자 검증
   if (!/^[0-9]{9,11}$/.test(form.phone)) {
-    alert('연락처는 숫자만 입력해주세요.')
+    alert('연락처를 확인해주세요.')
     return
   }
 
+  if (!agree.value) {
+    alert('개인정보 수집·이용 동의가 필요합니다.')
+    return
+  }
 
-  console.log(form)
+  if (isSending.value) return
+  isSending.value = true
+
+  emailjs.send(
+    'service_i8khjgb',
+    'template_kbz30sk',
+    {
+      category: form.category,
+      name: form.name,
+      phone: form.phone,
+      email: form.email,
+      title: form.title,
+      content: form.content,
+    },
+    '1YC9ggQvkl14_re0J'
+  )
+  .then(() => {
+    alert(`상담 신청이 완료되었습니다.\n담당 변호사가 확인 후 ${form.phone} 번호로 연락 드리겠습니다`)
+    
+    // ✅ 페이지 리로드
+    window.location.reload()
+  })
+  .catch((err) => {
+    console.error(err)
+    alert('상담 신청에 실패했습니다. 잠시 후 다시 시도해주세요.')
+  })
+  .finally(() => {
+    setTimeout(() => {
+      isSending.value = false
+    }, 3000)
+  })
 }
 
 function sanitizeEmail(e) {
@@ -188,11 +211,19 @@ function sanitizeEmail(e) {
 .row input,
 .row select,
 .row textarea {
+  font-family: 'Pretendard';
   width: 100%;
   height: 44px;
   padding: 0 12px;
   border: 1px solid #ddd;
+  font-size: 18px;
+  font-weight: 500;
 }
+.row select {
+  font-family: 'Pretendard';
+  font-weight: 500;
+  color: #555;
+} 
 
 .checkbox input {
   width: auto;

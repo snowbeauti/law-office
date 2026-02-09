@@ -15,10 +15,10 @@
     </video>
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <h2 class="title-main">
+      <h2 class="title-main reveal">
         법이 당신에게 <span class="brand brand_color">위안</span>이 되는 순간
       </h2>
-      <h2 class="sub title-main">
+      <h2 class="sub title-main reveal">
         진정한 <span class="brand brand_color">위안</span>은 완벽한 솔루션에서 시작됩니다.
       </h2>
     </div>
@@ -40,6 +40,15 @@
 <script setup>
 import { computed, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
+import { onMounted } from 'vue'
+
+onMounted(() => {
+  requestAnimationFrame(() => {
+    document.querySelectorAll('.reveal').forEach(el => {
+      el.classList.add('is-visible')
+    })
+  })
+})
 
 const route = useRoute()
 const base = import.meta.env.BASE_URL
@@ -120,6 +129,7 @@ watch(
   position: absolute;
   inset: 0;
   /* background: rgba(0,0,0,0.25); */
+  pointer-events: none; /* ⭐ 이 한 줄이 핵심 */
 }
 
 .sub-title {
@@ -214,6 +224,25 @@ watch(
 }
 
 
+/* 기본 상태 */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.title-main.reveal {
+  transition-delay: 0.3s;
+}
+
+.sub.title-main.reveal {
+  transition-delay: 1s;
+}
 
 
 /* =========================

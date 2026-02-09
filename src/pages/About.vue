@@ -6,8 +6,8 @@
     <div class="about-inner">
         <!-- 1️⃣ 타이틀 -->
       <div class="about-header">
-        <p class="about-lead1">잃어버린 일상,</p>
-        <p class="about-lead2">
+        <p class="about-lead1 reveal">잃어버린 일상,</p>
+        <p class="about-lead2 reveal">
           법률사무소 <span class="brand">위안</span>이 되찾아 드립니다.
         </p>
       </div>
@@ -15,26 +15,26 @@
       <!-- 3️⃣ 본문 -->
       <div class="about-text">
         
-        <p class="about-subtext">
+        <p class="about-subtext reveal">
           법적 분쟁은 예고 없이 찾아와 평온했던 일상을 뒤흔듭니다.
           복잡한 법리와 낯선 용어, 그리고 결과에 대한 불안감까지.
           혼자 감당하기에는 너무나 무거운 짐입니다.
         </p>
 
-        <p class="about-subtext">
+        <p class="about-subtext reveal">
           법률사무소 위안은 의뢰인의 답답한 마음을 듣는 것에서부터 시작합니다.
           어려운 법률 용어 대신 쉬운 언어로 소통하고,
           차가운 절차가 아닌 따뜻한 조력을 약속드립니다.
         </p>
 
-        <p class="about-subtext">
+        <p class="about-subtext reveal">
           의뢰인이 다시금 편안한 일상으로 돌아갈 수 있도록
           치밀하게 싸우고 확실하게 해결하겠습니다.
         </p>
       </div>
 
       <!-- 2️⃣ 이미지 -->
-      <div class="about-image">
+      <div class="about-image reveal">
         <img :src="`${$base}images/about_2.png`" alt="법률사무소 위안 소개 이미지" />
       </div>
 
@@ -43,11 +43,14 @@
 </template>
 
 <script setup>
-defineProps({
-  embedded: {
-    type: Boolean,
-    default: false
-  }
+import { onMounted } from 'vue'
+
+onMounted(() => {
+  requestAnimationFrame(() => {
+    document.querySelectorAll('.reveal').forEach(el => {
+      el.classList.add('is-visible')
+    })
+  })
 })
 </script>
 
@@ -137,6 +140,43 @@ defineProps({
   height: 1em;
   background-color: #004572;
 }
+
+/* 기본 상태 */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== 순서 제어 ===== */
+
+/* 잃어버린 일상 + 이미지 (동시) */
+.about-lead1.reveal,
+.about-image.reveal {
+  transition-delay: 0.1s;
+}
+
+/* 서브 타이틀 */
+.about-lead2.reveal {
+  transition-delay: 0.5s;
+}
+
+/* 본문 */
+.about-subtext.reveal:nth-of-type(1) {
+  transition-delay: 0.9s;
+}
+.about-subtext.reveal:nth-of-type(2) {
+  transition-delay: 1.3s;
+}
+.about-subtext.reveal:nth-of-type(3) {
+  transition-delay: 1.7s;
+}
+
 
 /* ✅ 모바일: 세로 스택 (flex) */
 @media (max-width: 768px) {

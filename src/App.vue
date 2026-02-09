@@ -4,7 +4,9 @@
   <!-- 🔥 meta 기준으로 Hero 제어 -->
   <Hero v-if="showHero" />
 
-  <RouterView />
+  <!-- ✅ 여기 -->
+  <RouterView :key="route.fullPath" />
+  
   <Footer />
 </template>
 

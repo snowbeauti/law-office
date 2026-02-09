@@ -1,12 +1,12 @@
 <template>
   <main class="page">
     <section class="members-section">
-      <h2 class="members-title"><span class="brand_color">의뢰인의 이익</span>을 최우선으로 생각합니다.</h2>
+      <h2 class="members-title reveal"><span class="brand_color">의뢰인의 이익</span>을 최우선으로 생각합니다.</h2>
 
       <div class="members-grid two">
         <!-- 구성원 1 -->
         <div class="member-card">
-          <div class="member-photo">
+          <div class="member-photo reveal">
             <RouterLink to="/members/1">
               <img class="member-img" :src="`${$base}images/member_1.jpg`" alt="이종호 대표변호사" />
             </RouterLink>
@@ -30,7 +30,7 @@
 
         <!-- 구성원 2 -->
         <div class="member-card">
-          <div class="member-photo">
+          <div class="member-photo reveal">
             <RouterLink to="/members/2">
               <img class="member-img" :src="`${$base}images/member_2.jpg`" alt="이태훈 대표변호사" />
             </RouterLink>
@@ -55,6 +55,18 @@
     </section>
   </main>
 </template>
+
+<script setup>
+import { onMounted } from 'vue'
+
+onMounted(() => {
+  requestAnimationFrame(() => {
+    document.querySelectorAll('.reveal').forEach(el => {
+      el.classList.add('is-visible')
+    })
+  })
+})
+</script>
 
 <style scoped>
 .photo-link {
@@ -188,6 +200,29 @@
   font-size: 18px;
   font-weight: 600;
   color: #555;
+}
+
+/* 기본 상태 */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.members-title.reveal {
+  transition-delay: 0.3s;
+}
+
+.member-photo.reveal:nth-of-type(1) {
+  transition-delay: 0.6s;
+}
+
+.member-photo.reveal:nth-of-type(2) {
+  transition-delay: 0.6s;
 }
 
 /* ===============================

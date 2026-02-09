@@ -1,10 +1,10 @@
 <template>
   <main class="page practice-page">
-    <h2 class="page-practice-title">
+    <h2 class="page-practice-title reveal">
       <span class="break-mobile">복잡한 법률 문제,</span>
       위안이 <span class="brand_color">명쾌한 해답</span>을 드립니다.
     </h2>
-    <div class="practice-grid">
+    <div class="practice-grid reveal">
       <div
         v-for="item in items"
         :key="item.title"
@@ -22,6 +22,15 @@
 
 <script setup>
 import { useRouter } from 'vue-router'
+import { onMounted } from 'vue'
+
+onMounted(() => {
+  requestAnimationFrame(() => {
+    document.querySelectorAll('.reveal').forEach(el => {
+      el.classList.add('is-visible')
+    })
+  })
+})
 const base = import.meta.env.BASE_URL
 
 const router = useRouter()
@@ -145,6 +154,24 @@ const goDetail = (title) => {
   opacity: 0.8;
 }
 
+/* 기본 상태 */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.page-practice-title.reveal {
+  transition-delay: 0.3s;
+}
+
+.practice-grid.reveal {
+  transition-delay: 0.6s;
+}
 /* =========================
    Mobile
 ========================= */

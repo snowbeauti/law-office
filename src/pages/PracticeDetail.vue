@@ -1,23 +1,23 @@
 <template>
   <main class="practice-detail page">
     <!-- 제목 -->
-    <header class="practice-header">
+    <header class="practice-header reveal">
       <h1>{{ data.title }}</h1>
       <div class="title-line"></div>
     </header>
 
     <!-- 핵심 문장 -->
-    <p class="practice-lead">
+    <p class="practice-lead reveal">
       {{ data.lead }}
     </p>
 
     <!-- 강조 설명 -->
-    <div class="practice-highlight">
+    <div class="practice-highlight reveal">
       <p>{{ data.highlight }}</p>
     </div>
 
     <!-- 주요 업무 -->
-    <ul class="practice-list">
+    <ul class="practice-list reveal">
       <li v-for="(item, i) in data.items" :key="i">
         {{ item }}
       </li>
@@ -188,6 +188,15 @@ const goCaseDetail = (item) => {
   router.push(`/cases/${item.id}`)
 }
 
+import { onMounted } from 'vue'
+
+onMounted(() => {
+  requestAnimationFrame(() => {
+    document.querySelectorAll('.reveal').forEach(el => {
+      el.classList.add('is-visible')
+    })
+  })
+})
 </script>
 <style scoped>
 .practice-detail {
@@ -338,6 +347,34 @@ const goCaseDetail = (item) => {
   line-height: 1.7;
   color: #555;
   font-family: 'Pretendard';
+}
+
+/* 기본 상태 */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.practice-header.reveal {
+  transition-delay: 0.3s;
+}
+
+.practice-lead.reveal  {
+  transition-delay: 0.6s;
+}
+
+.practice-highlight.reveal{
+  transition-delay: 0.9s;
+}
+
+.practice-list.reveal {
+  transition-delay: 1.2s;
 }
 
 /* 모바일 */
