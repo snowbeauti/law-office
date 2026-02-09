@@ -125,7 +125,7 @@ function openKakaoMap() {
 }
 function openTmap() {
   window.open(
-    `https://api2.sktelecom.com/tmap/app/routes?appKey=joOb8HOxel8xjCaCLHuZk8piAdromHxY2q4zmedm&name=법률사무소위안&lon=127.0096568&lat=37.492108`,
+    `https://api2.sktelecom.com/tmap/app/routes?appKey=UsOCBjCCpE377JbSZu8h4akuYLGUwQMO6NCI1tJ1&name=법률사무소위안&lon=127.0096568&lat=37.492108`,
     '_blank'
   )
 }
