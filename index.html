@@ -1,13 +1,32 @@
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<body>
-  <div id="app"></div>
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <script>
-    console.log('index.html 로드됨');
-  </script>
+    <!-- ✅ 여기서 탭 제목 결정 -->
+    <title>법률사무소 위안</title>
 
-  <script type="module" src="/src/main.js"></script>
-  <script
-  src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=16sok5oca8">
-  </script>
-</body>
+    <!-- (선택) 검색엔진용 설명 -->
+    <meta
+      name="description"
+      content="형사·민사·이혼 사건을 전문으로 하는 법률사무소 위안. 의뢰인의 상황에 맞는 최적의 법률 솔루션을 제공합니다."
+    />
+  </head>
+
+  <body>
+    <div id="app"></div>
+
+    <script>
+      console.log('index.html 로드됨');
+    </script>
+
+    <!-- Vite 엔트리 -->
+    <script type="module" src="/src/main.js"></script>
+
+    <!-- 네이버 지도 -->
+    <script
+      src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=9vo64gcr4h">
+    </script>
+  </body>
+</html>
